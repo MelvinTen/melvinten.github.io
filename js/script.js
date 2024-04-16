@@ -25,9 +25,11 @@ function buttonClick(e) {
     // kollar om siffertangent är nedtryckt
     if (btn.substring(0, 1) === 'b') {
         let digit = btn.substring(1, 2); // plockar ut siffran från id:et
+        addDigit(digit);
 
     } else { // Inte en siffertangent, övriga tangenter.
-
+        
+        clearLCD();
     }
 }
 
@@ -35,6 +37,7 @@ function buttonClick(e) {
  *  Lägger till siffra på display.
  */
 function addDigit(digit) {
+    lcd.value = lcd.value + digit;
 }
 
 /**

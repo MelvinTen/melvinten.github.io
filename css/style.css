@@ -21,7 +21,7 @@ body {
 button {
     width:23%;
     height:12rem;
-    font-size:4rem;
+    font-size:6rem;
     border:solid 1px black;
     border-radius:1rem;
     margin:0.2rem;
@@ -55,8 +55,12 @@ main input{
 
 @media (min-width: 767px) {
     
+    body {
+        width:30%;
+    }
+
     button {
-        height:13.5rem;
+        width:20%;
     }
 
     main input{
