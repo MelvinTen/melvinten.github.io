@@ -56,11 +56,11 @@ main input{
 @media (min-width: 767px) {
     
     body {
-        width:30%;
+        width:58rem;
     }
 
     button {
-        width:20%;
+        width:13.2rem;
     }
 
     main input{
