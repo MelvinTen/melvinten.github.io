@@ -52,14 +52,37 @@ function addComma() {
  * +, -, *, /
  */
 function setOperator(operator){
+    let add = document.getElementById('add');
+    let sub = document.getElementById('sub');
+    let mul = document.getElementById('mul');
+    let div = document.getElementById('div');
 
+    add.onclick = arithmetic = 'add';
+    sub.onclick = arithmetic = 'sub';
+    mul.onclick = arithmetic = 'mul';
+    div.onclick = arithmetic = 'div';
 }
 
 /**
  * Beräknar ovh visar resultatet på displayen.
  */
 function calculate() {
-
+    if(arithmetic == 'add') {
+        console.log("add");
+        lcd.value = memory + lcd.value;
+    }
+    else if(arithmetic == 'sub') {
+        console.log("sub");
+        lcd.value = memory - lcd.value;
+    }
+    else if(arithmetic == 'mul') {
+        console.log("mul");
+        lcd.value = memory * lcd.value;
+   }
+    else if(arithmetic == 'div') {
+        console.log("div");
+        lcd.value = memory / lcd.value;
+    }
 }
 
 /** Rensar display */
