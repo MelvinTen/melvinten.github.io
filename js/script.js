@@ -13,6 +13,7 @@ function init() {
     lcd = document.getElementById('lcd');
     let keyBoard = document.getElementById('keyBoard')
     keyBoard.onclick = buttonClick;
+    let button = document.getElementsByTagName("button");
 }
 
 /**
@@ -27,9 +28,18 @@ function buttonClick(e) {
         let digit = btn.substring(1, 2); // plockar ut siffran från id:et
         addDigit(digit);
 
-    } else { // Inte en siffertangent, övriga tangenter.
-        
+    } 
+    else if(btn === "clear") {
         clearLCD();
+    }
+    else if(btn === 'enter') {
+        calculate();
+    }
+    else if(btn.substring(0, 1) === 'c') {
+        addComma('.');
+    }
+    else { // Inte en siffertangent, övriga tangenter.
+        setOperator(btn, lcd.value);
     }
 }
 
@@ -44,42 +54,41 @@ function addDigit(digit) {
  * Lägger till decimaltecken
  */
 function addComma() {
-
+    if(lcd.value.includes('.')) {
+        console.log('comma');
+    }
+    else {
+        lcd.value = lcd.value + comma;
+    }
 }
 
 /**
  * Sparar operator.
  * +, -, *, /
  */
-function setOperator(operator){
-    let add = document.getElementById('add');
-    let sub = document.getElementById('sub');
-    let mul = document.getElementById('mul');
-    let div = document.getElementById('div');
-
-    add.onclick = arithmetic = 'add';
-    sub.onclick = arithmetic = 'sub';
-    mul.onclick = arithmetic = 'mul';
-    div.onclick = arithmetic = 'div';
+function setOperator(operator, siffra){
+    arithmetic = operator;
+    memory = siffra;
+    clearLCD();
 }
 
 /**
  * Beräknar ovh visar resultatet på displayen.
  */
 function calculate() {
-    if(arithmetic == 'add') {
+    if(arithmetic === 'add') {
         console.log("add");
-        lcd.value = memory + lcd.value;
+        lcd.value = Number(memory) + Number(lcd.value);
     }
-    else if(arithmetic == 'sub') {
+    else if(arithmetic === 'sub') {
         console.log("sub");
         lcd.value = memory - lcd.value;
     }
-    else if(arithmetic == 'mul') {
+    else if(arithmetic === 'mul') {
         console.log("mul");
         lcd.value = memory * lcd.value;
    }
-    else if(arithmetic == 'div') {
+    else if(arithmetic === 'div') {
         console.log("div");
         lcd.value = memory / lcd.value;
     }
