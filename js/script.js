@@ -54,11 +54,8 @@ function addDigit(digit) {
  * Lägger till decimaltecken
  */
 function addComma() {
-    if(lcd.value.includes('.')) {
-        console.log('comma');
-    }
-    else {
-        lcd.value = lcd.value + comma;
+    if(!lcd.value.includes('.')) {
+        lcd.value = lcd.value + '.';
     }
 }
 
@@ -73,7 +70,7 @@ function setOperator(operator, siffra){
 }
 
 /**
- * Beräknar ovh visar resultatet på displayen.
+ * Beräknar och visar resultatet på displayen.
  */
 function calculate() {
     if(arithmetic === 'add') {
